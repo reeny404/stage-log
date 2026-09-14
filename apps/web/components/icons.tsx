@@ -26,6 +26,14 @@ export function PlayIcon(props: IconProps) {
   return <svg {...defaults} {...props}><path fill="currentColor" stroke="none" d="m9 7 8 5-8 5Z"/></svg>;
 }
 
+export function PauseIcon(props: IconProps) {
+  return <svg {...defaults} {...props}><path fill="currentColor" stroke="none" d="M8 6h3v12H8zM13 6h3v12h-3z"/></svg>;
+}
+
+export function ExpandIcon(props: IconProps) {
+  return <svg {...defaults} {...props}><path d="M8 3H3v5M16 3h5v5M8 21H3v-5M16 21h5v-5"/></svg>;
+}
+
 export function ArrowIcon(props: IconProps) {
   return <svg {...defaults} {...props}><path d="M5 12h14M14 7l5 5-5 5"/></svg>;
 }

@@ -7,6 +7,13 @@ export type AnalyticsEvents = {
   reaction_sent: { contentId: string; reaction: string };
   filter_changed: { category: string };
   search_submitted: { queryLength: number; resultCount: number };
+  admission_requested: { eventId: string; scenario: "healthy" | "surge" | "dependency-failure" };
+  admission_queued: { eventId: string; peopleAhead: number };
+  admission_completed: {
+    eventId: string;
+    scenario: "healthy" | "surge" | "dependency-failure";
+    outcome: "admitted" | "degraded";
+  };
 };
 
 export type AnalyticsEventName = keyof AnalyticsEvents;
