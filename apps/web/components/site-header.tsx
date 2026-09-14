@@ -18,7 +18,7 @@ export function SiteHeader() {
           <Link className="header-search" href="/#case-study" aria-label="Open system overview">
             <SearchIcon />
           </Link>
-          <span className="avatar" aria-label="Portfolio lab">LAB</span>
+          <span className="avatar" aria-label="Load testing lab">LAB</span>
         </div>
       </header>
       <nav className="mobile-nav" aria-label="Mobile navigation">
