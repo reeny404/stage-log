@@ -1,0 +1,105 @@
+import type { StageContent } from "./types";
+
+export const contents: StageContent[] = [
+  {
+    id: "show-aurora-seoul",
+    slug: "aurora-seoul",
+    title: "Aurora Seoul Live",
+    artist: "NOVA/7",
+    eyebrow: "Live premiere",
+    description: "A city-scale performance where neon choreography meets a live global audience.",
+    category: "Live",
+    kind: "live",
+    startsAt: "2026-09-20T11:00:00.000Z",
+    duration: "78 min",
+    viewers: "82K waiting",
+    accent: "coral",
+    episode: "Seoul · Night 1",
+    isLive: true,
+  },
+  {
+    id: "show-light-lab",
+    slug: "inside-light-lab",
+    title: "Inside the Light Lab",
+    artist: "NOVA/7",
+    eyebrow: "Original documentary",
+    description: "Six weeks, fourteen cameras, and one stage built to disappear in the dark.",
+    category: "Documentary",
+    kind: "vod",
+    startsAt: "2026-09-16T09:00:00.000Z",
+    duration: "34 min",
+    viewers: "1.4M plays",
+    accent: "violet",
+    episode: "Episode 04",
+  },
+  {
+    id: "show-parallax",
+    slug: "parallax-room",
+    title: "The Parallax Room",
+    artist: "MIRA",
+    eyebrow: "Studio performance",
+    description: "One continuous take, shifting perspectives, and a voice at the center of it all.",
+    category: "Performance",
+    kind: "vod",
+    startsAt: "2026-09-18T12:00:00.000Z",
+    duration: "18 min",
+    viewers: "680K plays",
+    accent: "blue",
+    episode: "Special stage",
+  },
+  {
+    id: "show-afterimage",
+    slug: "afterimage-diary",
+    title: "Afterimage Diary",
+    artist: "LUCENT",
+    eyebrow: "Behind the stage",
+    description: "The quiet ten minutes between rehearsal and the first light of the show.",
+    category: "Behind",
+    kind: "vod",
+    startsAt: "2026-09-22T10:00:00.000Z",
+    duration: "12 min",
+    viewers: "New episode",
+    accent: "lime",
+    episode: "Tour diary 02",
+  },
+  {
+    id: "show-summer-signal",
+    slug: "summer-signal",
+    title: "Summer Signal",
+    artist: "HANA",
+    eyebrow: "Festival replay",
+    description: "A bright closing set recorded at the edge of the sea.",
+    category: "Performance",
+    kind: "vod",
+    startsAt: "2026-09-24T08:30:00.000Z",
+    duration: "26 min",
+    viewers: "410K plays",
+    accent: "amber",
+    episode: "Busan encore",
+  },
+  {
+    id: "show-midnight-radio",
+    slug: "midnight-radio",
+    title: "Midnight Radio",
+    artist: "MIRA × LUCENT",
+    eyebrow: "Live talk",
+    description: "Songs, stories, and messages arriving from every timezone.",
+    category: "Live",
+    kind: "live",
+    startsAt: "2026-09-27T14:00:00.000Z",
+    duration: "60 min",
+    viewers: "21K waiting",
+    accent: "rose",
+    episode: "Live room 09",
+  },
+];
+
+export async function getContents() {
+  await Promise.resolve();
+  return contents;
+}
+
+export async function getContent(slug: string) {
+  await Promise.resolve();
+  return contents.find((content) => content.slug === slug);
+}

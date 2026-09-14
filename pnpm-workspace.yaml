@@ -1,0 +1,13 @@
+packages:
+  - "apps/*"
+  - "packages/*"
+
+allowBuilds:
+  esbuild: true
+  unrs-resolver: true
+
+onlyBuiltDependencies:
+  - "@playwright/browser-chromium"
+  - "esbuild"
+  - "sharp"
+  - "unrs-resolver"

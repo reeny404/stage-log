@@ -1,0 +1,20 @@
+{
+  "name": "stagelog",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@10.11.0",
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "lint": "turbo lint",
+    "test": "turbo test",
+    "test:e2e": "pnpm --filter @stagelog/web test:e2e",
+    "format": "prettier --write .",
+    "check": "pnpm lint && pnpm test && pnpm build"
+  },
+  "devDependencies": {
+    "prettier": "^3.6.2",
+    "turbo": "^2.5.6",
+    "typescript": "^5.9.2"
+  }
+}
