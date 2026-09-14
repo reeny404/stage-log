@@ -14,7 +14,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
       <body>
         <SiteHeader />
         {children}
-        <footer className="site-footer"><span>STAGELOG</span><p>Stable when every fan arrives at once.</p><small>Reproducible portfolio lab · 2026</small></footer>
+        <footer className="site-footer"><span>STAGELOG</span><p>Stable when every fan arrives at once.</p><small>Reproducible load lab · 2026</small></footer>
       </body>
     </html>
   );

@@ -2,9 +2,15 @@
 
 > 모든 팬이 한꺼번에 도착하는 순간에도 안정적인 글로벌 이벤트 입장 경험
 
-StageLog는 Mnet Plus Frontend Engineer 지원을 위해 만드는 Next.js 포트폴리오 프로젝트입니다. 실제 라이브 영상을 중계하는 대신, 시상식·콘서트 오픈 직후 발생하는 **읽기 트래픽 급증, 개인 입장 요청, 실시간 기능 장애를 서로 격리하는 프론트엔드 경험**에 집중합니다.
+StageLog는 이벤트 오픈 직후 발생하는 **읽기 트래픽 급증, 개인 입장 요청, 실시간 기능 장애를 서로 격리하는 방법**을 검증하는 Next.js 프로젝트입니다. 실제 라이브 영상 중계는 범위에 포함하지 않습니다.
 
-실제 대규모 사용자를 운영했다고 주장하지 않습니다. 정상·피크·의존성 장애를 같은 코드에서 재현하고, 별도 부하 시나리오로 기술 가설을 검증합니다. 상세 범위는 [`docs/PRD.md`](docs/PRD.md), 실행 순서는 [`TODO.md`](TODO.md)에 있습니다.
+정상·피크·의존성 장애를 같은 코드에서 재현하고 별도 부하 시나리오로 다음 대상을 검증합니다. 상세 범위는 [`docs/PRD.md`](docs/PRD.md), 실행 순서는 [`TODO.md`](TODO.md)에 있습니다.
+
+- 공개 이벤트 셸과 개인화된 입장 요청의 분리
+- 중복 입장을 막는 idempotency key 계약
+- 대기열 polling과 입장 상태 전이
+- 일부 API 장애 시 공개 정보와 재시도 경로 유지
+- 캐시 가능한 읽기와 동적 쓰기의 부하 특성 비교
 
 ## 핵심 사용자 흐름
 
@@ -25,13 +31,14 @@ StageLog는 Mnet Plus Frontend Engineer 지원을 위해 만드는 Next.js 포�
 - Vitest 단위 테스트, Playwright E2E, GitHub Actions CI
 - 기존 콘텐츠/VOD 탐색 코드는 후속 경험을 위한 archive로 유지
 
-## 중요한 정직성 경계
+## 테스트 범위와 한계
 
-`/api/demo/*`는 UI 상태와 네트워크 계약을 반복해서 보여주는 stateless simulation입니다. 분산 대기열, 영속 저장소, 봇 방어 또는 실제 동시 접속자를 구현하지 않습니다. 공개할 수 있는 결과는 다음처럼 표현합니다.
+`/api/demo/*`는 UI 상태와 네트워크 계약을 반복해서 검증하는 stateless simulation입니다. 분산 대기열, 영속 저장소, 봇 방어 또는 실제 동시 접속자를 구현하지 않습니다. 측정 결과는 다음 조건을 함께 기록합니다.
 
-> 지정한 테스트 환경에서 가상 요청을 재현해 이벤트 셸과 입장 쓰기의 응답 시간·실패율을 비교했다.
-
-“수만 명의 실제 사용자를 처리했다”는 표현은 사용하지 않습니다.
+- 실행한 commit과 테스트 환경
+- 가상 사용자 수와 요청 도달률
+- 이벤트 셸과 입장 쓰기의 응답 시간·실패율
+- 실제 분산 시스템과 다른 simulation의 한계
 
 ## 시스템 경계
 
@@ -116,4 +123,4 @@ k6 run apps/load-tests/event-spike.js
 
 ## License
 
-Portfolio project. All artist names, programs, schedules, artwork, and metrics are fictional.
+Test project. All artist names, programs, schedules, artwork, and metrics are fictional.
